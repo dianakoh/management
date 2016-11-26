@@ -1,0 +1,72 @@
+/* ÃÊ±âÈ­ */
+    * {margin: 0; padding: 0;}
+    body {font-family: '¸¼Àº °íµñ', serif;}
+    li{list-style: none;}
+    a {text-decoration: none;}
+    img {border: 0;}    
+    /* Çì´õ */
+    #header {
+			/* Áß¾Ó Á¤·Ä*/
+            width: 100%; margin: 0 auto;
+
+            /* Àý´ë ÁÂÇ¥ */
+            height: 160px;
+            position: relative;
+            margin-bottom: 10px;
+    }
+    
+    #header > #title {
+    position: absolute;
+    left: 20px; top: 30px;
+    font-family: '¸¼Àº °íµñ', serif;
+    color: black;
+    }
+    
+    /* ÄÜÅÙÃ÷ */
+    #content {
+			/* Áß¾Ó Á¤·Ä */
+			width: 100%; margin: 0 auto;
+            /* ¼öÆò ·¹ÀÌ¾Æ¿ô ±¸¼º */
+            overflow: hidden;
+            margin-bottom: 10px;
+    }
+    
+    #content > #aside {
+    width: 30%;
+    float: left;
+    margin-top: 10px;
+    margin-left: 10px;
+    margin-right: 10px;
+   	padding-top: 5px;
+   	padding-bottom: 20px;
+   	padding-left: 10px;
+    background: lightgray;
+    color: white;
+    }
+      
+    #content > #main_section {
+    width: 65%;
+    float: left;
+    margin-top: 10px;
+    }
+    /* º»¹® */
+    section.buttons {margin-bottom: 20px;}
+    section.buttons  > ul {overflow: hidden;}
+    section.buttons > ul > #phoneBook {			
+			list-style: none;
+            float: left;
+            width: 50%; height: 30px;
+            line-height: 30px;
+            text-align: center;
+            box-sizing: border-box;
+            border: 1px solid black;
+        }
+        section.buttons > ul > #schedule {			
+			list-style: none;
+            float: left;
+            width: 50%; height: 30px;
+            line-height: 30px;
+            text-align: center;
+            box-sizing: border-box;
+            border: 1px solid black;
+        }
