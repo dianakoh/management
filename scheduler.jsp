@@ -4,7 +4,8 @@
 <%@page import="java.util.Calendar"%>
 <%@ page import="java.sql.Date" %>
 <%
-	String userid =  (String)session.getAttribute("userID");
+	//String userid =  (String)session.getAttribute("userID");
+	String userid = "testid";
 	String username =  (String)session.getAttribute("userName");
 	String userimg = (String)session.getAttribute("userImg");
 %>
