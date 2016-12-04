@@ -85,9 +85,9 @@
 	PreparedStatement stmt  = null;
 	ResultSet rs = null;
 	
-	String url = "jdbc:mysql://management.cippnzwfrlpx.ap-northeast-2.rds.amazonaws.com:3306/management";        
-	String dbuser = "management";                                       
-	String dbpass = "sookcscs";
+	String url = "jdbc:mysql://127.0.0.1:3306/management";        
+	String dbuser = "root";                                       
+	String dbpass = "rkdud723";
 	
 	try{
 		Class.forName("com.mysql.jdbc.Driver");            
