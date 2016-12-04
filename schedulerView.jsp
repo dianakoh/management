@@ -121,7 +121,7 @@
 				<TD style="border: 1px solid #bcbcbc; word-wrap: break-word"
 					align="center"><%=rs.getString("content") %></TD>
 				<TD style="border: 1px solid #bcbcbc;" align="center"><a
-					href=scheduler_Update.jsp?number= <%=rs.getInt("no")%>>수정</a> <a
+					href=scheduler_Update.jsp?number=<%=rs.getInt("no")%>>수정</a> <a
 					href="scheduler_DeleteProcess.jsp?number=<%=rs.getInt("no")%>&year=<%=year%>&month=<%=month%>&day=<%=day%>"
 					onclick="return confirm('정말로 삭제하시겠습니까?');">삭제</a></TD>
 			</TR>
