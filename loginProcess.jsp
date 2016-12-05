@@ -19,15 +19,15 @@
 	PreparedStatement pstmt = null;
 	ResultSet rs = null;
 	
-	String url = "jdbc:mysql://203.252.195.138:3306/fanpage?useSSL=false";        
-	String dbuser = "";                                       
-	String dbpass = "";
+	String url = "jdbc:mysql://127.0.0.1:3306/se";        
+	String dbid = "root";                                       
+	String dbpw = "rkdud723";   
 	
 	try {
 		Class.forName("com.mysql.jdbc.Driver");
-		conn = DriverManager.getConnection(url, dbuser, dbpass);
+		conn = DriverManager.getConnection(url, dbid, dbpw);
 		
-		String sql = "select * from member";
+		String sql = "select * from users";
 		pstmt = conn.prepareStatement(sql);
 		rs = pstmt.executeQuery();
 		
