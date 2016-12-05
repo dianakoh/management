@@ -15,7 +15,6 @@
 <body>
 <jsp:include page="mainView.jsp" />
 	<center>
-	<h1>회원가입</h1>
 	<table border='2' >
 	<form action="">
 
