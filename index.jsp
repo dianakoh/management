@@ -31,11 +31,11 @@
 						<tr>Login<hr/><br/></tr>
 						<tr>
 							<td>id </td>
-							<td><input type="text" name="id" size="15"/></td>
+							<td><input type="text" name="formId" size="15"/></td>
 						</tr>
 						<tr>
 							<td>password </td>
-							<td><input type="password" name="pw" size="15"/></td>
+							<td><input type="password" name="formPassword" size="15"/></td>
 						</tr>
 					</table>
 					<br/><hr/>

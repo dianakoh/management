@@ -11,8 +11,8 @@
 </head>
 <body>
 	<%
-	String formId = request.getParameter("id");
-	String formPassword = request.getParameter("pw");
+	String formId = request.getParameter("formId");
+	String formPassword = request.getParameter("formPassword");
 	boolean log = false;
 	
 	Connection conn = null;		
@@ -20,12 +20,12 @@
 	ResultSet rs = null;
 	
 	String url = "jdbc:mysql://127.0.0.1:3306/se";        
-	String dbid = "root";                                       
-	String dbpw = "rkdud723";   
+	String dbId = "root";                                       
+	String dbPassword = "rkdud723";   
 	
 	try {
 		Class.forName("com.mysql.jdbc.Driver");
-		conn = DriverManager.getConnection(url, dbid, dbpw);
+		conn = DriverManager.getConnection(url, dbId, dbPassword);
 		
 		String sql = "select * from users";
 		pstmt = conn.prepareStatement(sql);
@@ -41,10 +41,16 @@
 	catch (SQLException ex) {}
 	
 	if (log) {
-		session.setAttribute("userID", formId);
-		pageContext.forward("phoneBook.jsp");
+		session.setAttribute("userId", formId);
+		%>
+		<script>
+			location.href="phoneBook.jsp";
+		</script>
+		<%
 	}
 	else %>
-		<script>history.go(-1);</script>
+		<script>
+			history.go(-1);
+		</script>
 </body>
 </html>
