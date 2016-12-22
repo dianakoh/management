@@ -7,10 +7,7 @@
 <%@page import="java.util.Calendar"%>
 <%@ page import="java.sql.Date" %>
 <%
-	//String userid =  (String)session.getAttribute("userID");
-	String userid = "aaa";
-	String username =  (String)session.getAttribute("userName");
-	String userimg = (String)session.getAttribute("userImg");
+	String formId =  (String)session.getAttribute("userId");
 %>
 <%
     Calendar now = Calendar.getInstance();
@@ -42,28 +39,19 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>Scheduler</title>
-<link rel=stylesheet href="schedulerStyle.css" />
-<link rel=stylesheet href="mainViewStyle.css" />
-        <style type="text/css">
-            td{font-size: 9pt;}
-            a{cusor: pointer; color: #000000; text-decoration: none; font-size: 9pt; line-height: 150%;}
-            a:HOVER, a:ACTIVE{font-size: 9pt; color: #F28011; text-decoration: underline;}
-        </style>
-<script>
-function onLogout() {
-	if (confirm("로그아웃 하시겠습니까?")) {
-		<%
-		session.invalidate();
-		%>
-		location.href="index.jsp";
-	}
-}
-</script>
+	<link rel=stylesheet href="initStyle.css"/>
+	<link rel=stylesheet href="mainViewStyle.css"/>
+	<script>
+		function onLogout() {
+			if (confirm("로그아웃 하시겠습니까?")) {
+				location.href="index.jsp";
+			}
+		}
+	</script>
+
 </head>
 <body>
-	<% 
-	String formId = "aaa";//request.getParameter("sessionId");
-	//String formId = (String)session.getAttribute("userId");
+	<%
 	String formName = null;
 	String formEmail = null;
 	String formImage = null;
@@ -130,13 +118,13 @@ function onLogout() {
 			<section id="menu">
 				<ul>
 					<li id="phoneBookMenu"><a href="phoneBook.jsp">PhoneBook</a></li>
-					<li id="scheduleMenu"><a href="scheduler.jsp">Schedule</a></li>
+					<li id="scheduleMenu"><a href="scheduler.jsp?year=<%=year%>&month=<%=month%>">Schedule</a></li>
 				</ul>
  			</section>
-        <center>
-            <table width="80%" border="0" cellpadding="1" cellspacing="2">
+        <center style="margin-top:10%;">
+            <table width="80%" border="0" cellpadding="1" cellspacing="2" style="font-size: 9pt;">
                 <tr height="30">
-                    <td align="center">
+                    <td align="center" style="font-size: 9pt;">
                         <a href="scheduler.jsp?year=<%=year%>&month=<%=month-1%>">◀</a>
                         <b><%=year %>年 <%=month %>月</b>
                         <a href="scheduler.jsp?year=<%=year%>&month=<%=month+1%>">▶</a>
@@ -146,13 +134,13 @@ function onLogout() {
             
             <table width="80%" border="0" cellpadding="2" cellspacing="1" bgcolor="#cccccc">
                 <tr height="25">
-                    <td align="center" bgcolor="#e6e4e6"><font color="red">일</font></td>
-                    <td align="center" bgcolor="#e6e4e6">월</td>
-                    <td align="center" bgcolor="#e6e4e6">화</td>
-                    <td align="center" bgcolor="#e6e4e6">수</td>
-                    <td align="center" bgcolor="#e6e4e6">목</td>
-                    <td align="center" bgcolor="#e6e4e6">금</td>
-                    <td align="center" bgcolor="#e6e4e6"><font color="blue">토</font></td>
+                    <td align="center" bgcolor="#e6e4e6"><font color="red" style="font-size: 9pt;">일</font></td>
+                    <td align="center" bgcolor="#e6e4e6" style="font-size: 9pt;">월</td>
+                    <td align="center" bgcolor="#e6e4e6" style="font-size: 9pt;">화</td>
+                    <td align="center" bgcolor="#e6e4e6" style="font-size: 9pt;">수</td>
+                    <td align="center" bgcolor="#e6e4e6" style="font-size: 9pt;">목</td>
+                    <td align="center" bgcolor="#e6e4e6" style="font-size: 9pt;">금</td>
+                    <td align="center" bgcolor="#e6e4e6"><font color="blue" style="font-size: 9pt;">토</font></td>
                 </tr>
                 <%
                     int newLine = 0;
@@ -160,17 +148,17 @@ function onLogout() {
                     out.println("<tr height='25'>");
                     for(int i=1; i<w; i++)
                     {
-                        out.println("<td bgcolor='#ffffff'>&nbsp;</td>");
+                        out.println("<td bgcolor='#ffffff' style='font-size: 9pt;'>&nbsp;</td>");
                         newLine++;
                     }
                     
-                    String fc, bg;
+                    String fc, bg, fs;
                     for(int i=1; i<=end; i++)
                     {
                         
                         fc = (newLine == 0)?"red":(newLine==6?"blue":"#000000");
                         bg = "#ffffff";
-                        out.println("<td align='center' bgcolor=" + bg + "><font color=" + fc + ">"
+                        out.println("<td align='center' style='font-size: 9pt;' bgcolor=" + bg + "><font color=" + fc + ">"
                                 + "<a href=schedulerView.jsp?year=" + year + "&month=" + month+ "&day="+ i + ">" + i + "</a></font></td>");
                         newLine++;
                         if(newLine == 7 && i != end)
@@ -183,7 +171,7 @@ function onLogout() {
                     
                     while(newLine>0 && newLine<7)
                     {
-                        out.println("<td bgcolor='ffffff'>&nbsp;</td>");
+                        out.println("<td bgcolor='ffffff' style='font-size: 9pt;'>&nbsp;</td>");
                         newLine++;    
                     }
                     out.println("</tr>");

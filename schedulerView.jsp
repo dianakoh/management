@@ -6,10 +6,8 @@
 <%@ page import="java.sql.Date"%>
 
 <%
-	//String userid =  (String)session.getAttribute("userID");
-	String userid = "aaa";
-	String username =  (String)session.getAttribute("userName");
-	String userimg = (String)session.getAttribute("userImg");
+	String userid =  (String)session.getAttribute("userId");
+	String formId =  (String)session.getAttribute("userId");
 %>
 <%
 	// paginator
@@ -45,14 +43,53 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>SchedulerView</title>
-<link rel=stylesheet href="schedulerStyle.css" />
+	<link rel=stylesheet href="initStyle.css"/>
+	<link rel=stylesheet href="mainViewStyle.css"/>
 <style>
 </style>
-<script>
-</script>
+	<script>
+		function onLogout() {
+			if (confirm("로그아웃 하시겠습니까?")) {
+				location.href="index.jsp";
+			}
+		}
+	</script>
 
 </head>
 <body>
+	<% 
+	String formName = null;
+	String formEmail = null;
+	String formImage = null;
+	
+	Connection conn = null;		
+	PreparedStatement pstmt = null;
+	ResultSet rs = null;
+	
+	String url = "jdbc:mysql://127.0.0.1:3306/se";        
+	String dbId = "root";                                       
+	String dbPassword = "rkdud723";  
+	
+	try {	
+		Class.forName("com.mysql.jdbc.Driver");            
+		conn = DriverManager.getConnection(url, dbId, dbPassword);
+		
+		String sql = "select * from users";
+		pstmt = conn.prepareStatement(sql);
+		rs = pstmt.executeQuery();
+		
+		while (rs.next())
+			if (rs.getString(1).equals(formId)) {
+				formName = rs.getString(3);
+				formEmail = rs.getString(5); 
+				formImage = rs.getString(6);
+			}
+		rs.close();
+		pstmt.close();
+		conn.close();
+	}
+	catch (SQLException ex) { }
+	%>
     <header id="header">
         <hgroup id="title">
             <h1>Daily Management System</h1>
@@ -60,18 +97,37 @@
     </header>
     <div id="content">
 		<aside id="aside">
-		<h3>Profile</h3>
+			<div id="profileMenu">Profile</div>
+			<div id="profile">
+				<form id="profileForm" action="userUpdate.jsp" method="post">
+					<img src="<%=formImage %>"></img>
+					<table>
+						<tr>
+							<td>ID </td>
+							<td><%=formId %></td>
+						</tr>
+						<tr>
+							<td>NAME </td>
+							<td><%=formName %></td>
+						</tr>
+						<tr>
+							<td>EMAIL </td>
+							<td><%=formEmail %></td>
+						</tr>
+					</table>
+					<input type="submit" value="EDIT"/>
+					<input type="button" value="LOGOUT" onclick="onLogout()"/>
+				</form>
+			</div>
         </aside>
-        <section id="main_section">
-        <section class="buttons">
-		<ul>
-			<li id="phoneBook" onclick="location.href='phoneBook.jsp'"
-				style="background: white; color: black;">PhoneBook</li>
-			<li id="schedule"
-				onclick="location.href='scheduler.jsp?year=<%=year%>&month=<%=month%>'"
-				style="background: black; color: white;">Schedule</li>
-		</ul>
-		</section> <input type=button value="추가"
+		<section id="mainSection">
+			<section id="menu" style="margin-bottom:10%">
+				<ul>
+					<li id="phoneBookMenu"><a href="phoneBook.jsp">PhoneBook</a></li>
+					<li id="scheduleMenu"><a href="scheduler.jsp?year=<%=year%>&month=<%=month%>">Schedule</a></li>
+				</ul>
+ 			</section>
+ 			<input type=button value="추가"
 			onclick="location.href='scheduler_Add.jsp?year=<%=year%>&month=<%=month%>&day=<%=day%>'" />
 		<TABLE style="width: 100%; table-layout: fixed">
 			<TR>
@@ -81,26 +137,26 @@
 				<TD style="border: 1px solid #bcbcbc;" align="center">Manage</TD>
 			</TR>
 			<%
-	Connection conn = null;		
-	PreparedStatement stmt  = null;
-	ResultSet rs = null;
+	conn = null;		
+	pstmt  = null;
+	rs = null;
 	
-	String url = "jdbc:mysql://127.0.0.1:3306/se";        
-	String dbuser = "root";                                       
-	String dbpass = "rkdud723";
+	url = "jdbc:mysql://127.0.0.1:3306/se";        
+	dbId = "root";                                       
+	dbPassword = "rkdud723";  
 	
 	try{
 		Class.forName("com.mysql.jdbc.Driver");            
-		conn=DriverManager.getConnection(url,dbuser,dbpass);
+		conn=DriverManager.getConnection(url,dbId,dbPassword);
 
 		// Statement 생성
 		
 		// ReseltSet의 레코드 수를 lastRow 변수에 저장
 		String strSQL = "SELECT count(*) FROM Schedule WHERE userID = ? and scheduleDate = ?";
-		stmt = conn.prepareStatement(strSQL);
-		stmt.setString(1, userid);
-		stmt.setDate(2, scheduleDate);
-		rs = stmt.executeQuery();
+		pstmt = conn.prepareStatement(strSQL);
+		pstmt.setString(1, userid);
+		pstmt.setDate(2, scheduleDate);
+		rs = pstmt.executeQuery();
 		if(rs.next())
 			lastRow = rs.getInt(1);
 		rs.close();
@@ -108,10 +164,10 @@
 		// ResultSet에 레코드가 존재할 때
 		if(lastRow > 0) {
 				strSQL = "SELECT * FROM Schedule WHERE userID = ? and scheduleDate = ? ORDER BY scheduleTime ASC";
-				stmt = conn.prepareStatement(strSQL);
-				stmt.setString(1, userid);
-				stmt.setDate(2, scheduleDate);
-				rs = stmt.executeQuery();				
+				pstmt = conn.prepareStatement(strSQL);
+				pstmt.setString(1, userid);
+				pstmt.setDate(2, scheduleDate);
+				rs = pstmt.executeQuery();				
 				for(i=1;rs.next(); i++){
 					if(i >= startRow && i <=endRow){
 %>
@@ -130,7 +186,7 @@
 				}
 				rs.close();
 			// 사용한 Statement 종료
-			stmt.close();
+			pstmt.close();
 			// 커넥션 종료
 			//conn.close();
 		}

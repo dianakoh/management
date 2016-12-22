@@ -7,8 +7,7 @@
 <head><title>scheduler_AddProcess</title></head>
 <body>
 <%
-//String userid = (String)session.getAttribute("userID");
-String userid = "aaa";
+String userid = (String)session.getAttribute("userId");
 String hour = request.getParameter("hour");
 String minute = request.getParameter("minute");
 String title = request.getParameter("title");
