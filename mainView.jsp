@@ -7,9 +7,6 @@
 	<script>
 		function onLogout() {
 			if (confirm("로그아웃 하시겠습니까?")) {
-				<%
-				session.invalidate();
-				%>
 				location.href="index.jsp";
 			}
 		}
