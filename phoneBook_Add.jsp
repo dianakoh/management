@@ -35,11 +35,36 @@
 	<link rel=stylesheet href="initStyle.css"/>
 	<link rel=stylesheet href="mainViewStyle.css"/>
 	<script>
-		function onLogout() {
-			if (confirm("로그아웃 하시겠습니까?")) {
-				location.href="index.jsp";
-			}
+	function phoneBookAdd_check(){
+		if(document.form.name.value == ""){
+			alert("이름을 입력해주세요");
+			document.form.name.focus();
+			return false;
 		}
+		else if(document.form.phone.value == ""){
+			alert("전화번호를 입력해주세요");
+			document.phone.content.focus();
+			return false;
+		}
+		else if(document.form.birth.value == ""){
+			alert("생년월일를 입력해주세요");
+			document.phone.content.focus();
+			return false;
+		}
+		else if(document.form.email.value == ""){
+			alert("이메일을 입력해주세요");
+			document.email.content.focus();
+			return false;
+		}
+		else{
+			document.form.submit();
+		}
+	}
+	function onLogout() {
+		if (confirm("로그아웃 하시겠습니까?")) {
+			location.href="index.jsp";
+		}
+	}
 	</script>
 </head>
 <body>
@@ -116,7 +141,7 @@
  			</section>
 	<center>
 	
-	<form action="phoneBook_AddProcess.jsp" method="post">
+	<form action="phoneBook_AddProcess.jsp" method="post" onsubmit="return phoneBookAdd_check();">
 <table border='2' >
 	<tr>
 		<td>이름</td>
@@ -147,7 +172,7 @@
 		</table>
 
 	<input type="submit" value="저장">
-	<input type="reset" value="취소">
+	<input type="reset" value="취소" name="resetbtn" OnClick="javascript:history.back(-1)" >
 </form>
 
 	</center>
