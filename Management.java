@@ -8,7 +8,7 @@ public class Management {
 	String birth = "19950421";
     String email = "yui08@naver.com";
     boolean scheduleDelete;
-	String scheduleUserid;
+	boolean scheduleUserid;
     
 	boolean processLogin(String formId, String formPassword) {
 		login = false;
@@ -47,10 +47,10 @@ public class Management {
 		return scheduleDelete;
 	}
 	
-	String scheduleUseridCheck(String userid){
-		scheduleUserid = userid;
-		if(userid == null){
-			scheduleUserid = "";
+	boolean scheduleUseridCheck(String userid){
+		scheduleUserid = false;
+		if(userid != null){
+			scheduleUserid = true;
 		}
 		return scheduleUserid;
 	}

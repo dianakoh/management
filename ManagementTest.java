@@ -55,8 +55,7 @@ public class ManagementTest {
 	@Test
 	public void testScheduleUseridCheck() {
 		Management schedule = new Management();
-		assertNull(schedule.scheduleUseridCheck(""));
-		assertNotNull(schedule.scheduleUseridCheck("jiwan"));
+		assertTrue(schedule.scheduleUseridCheck("gayoung"));
 	}
 	
 }
