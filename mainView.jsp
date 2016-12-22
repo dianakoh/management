@@ -15,7 +15,7 @@
 		}
 	</script>
 	<% 
-	String formId = "aaa";//request.getParameter("sessionId");
+	//String formId = "aaa";//request.getParameter("sessionId");
 	String formName = null;
 	String formEmail = null;
 	String formImage = null;
