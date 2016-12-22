@@ -43,5 +43,8 @@
 		if(conn != null) try{conn.close();}catch(SQLException sqle){}   
 	}		
 %>
+<%
+response.sendRedirect("phoneBook.jsp");
+%>
 </body>
 </html>
