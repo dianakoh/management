@@ -109,12 +109,13 @@
 			</div>
         </aside>
 		<section id="mainSection">
-			<section id="menu">
+			<section id="menu" style="margin-bottom:10%">
 				<ul>
 					<li id="phoneBookMenu"><a href="phoneBook.jsp">PhoneBook</a></li>
 					<li id="scheduleMenu"><a href="scheduler.jsp?year=<%=year%>&month=<%=month%>">Schedule</a></li>
 				</ul>
  			</section>
+ 			<input type=button value="추가" onclick="location.href='phoneBook_Add.jsp'"/>
 		</section>
     </div>
 </body>
