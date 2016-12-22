@@ -7,15 +7,12 @@
 	<script>
 		function onLogout() {
 			if (confirm("로그아웃 하시겠습니까?")) {
-				<%
-				session.invalidate();
-				%>
 				location.href="index.jsp";
 			}
 		}
 	</script>
 	<% 
-	String formId = "aaa";//request.getParameter("sessionId");
+	String formId = (String)session.getAttribute("userId");
 	String formName = null;
 	String formEmail = null;
 	String formImage = null;
