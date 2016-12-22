@@ -182,7 +182,7 @@
 					<TD style="border: 1px solid #bcbcbc;" align="center"><%=rs.getString("birth")%></TD>
 					<TD style="border: 1px solid #bcbcbc;" align="center"><%=rs.getString("email")%></TD>
 					<TD style="border: 1px solid #bcbcbc;" align="center"><a
-						href=phoneBook_Update.jsp?number= <%=rs.getInt("no")%>>수정</a> <a
+						href=phoneBook_Update.jsp?number=<%=rs.getInt("no")%>>수정</a> <a
 						href="phoneBook_DeleteProcess.jsp?number=<%=rs.getInt("no")%>"
 						onclick="return confirm('정말로 삭제하시겠습니까?');">삭제</a></TD>
 				</TR>
