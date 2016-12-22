@@ -8,7 +8,7 @@
 <body>
 <%
 //String userid = (String)session.getAttribute("userID");
-String userid = "testid";
+String userid = "aaa";
 String hour = request.getParameter("hour");
 String minute = request.getParameter("minute");
 String title = request.getParameter("title");
@@ -27,7 +27,7 @@ Connection conn = null;
 PreparedStatement pstmt = null;
 ResultSet rs = null;
 try{
-	String url = "jdbc:mysql://127.0.0.1:3306/management";        
+	String url = "jdbc:mysql://127.0.0.1:3306/se";        
 	String dbid = "root";                                       
 	String dbpw = "rkdud723";      
 		
