@@ -7,7 +7,7 @@
 
 <%
 	//String userid =  (String)session.getAttribute("userID");
-	String userid = "testid";
+	String userid = "aaa";
 	String username =  (String)session.getAttribute("userName");
 	String userimg = (String)session.getAttribute("userImg");
 %>
@@ -85,7 +85,7 @@
 	PreparedStatement stmt  = null;
 	ResultSet rs = null;
 	
-	String url = "jdbc:mysql://127.0.0.1:3306/management";        
+	String url = "jdbc:mysql://127.0.0.1:3306/se";        
 	String dbuser = "root";                                       
 	String dbpass = "rkdud723";
 	
