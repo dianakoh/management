@@ -41,7 +41,7 @@ public class Management {
 	
 	boolean scheduleDeleteCheck(String deleteMessage) {
 		scheduleDelete = true;
-		if(deleteMessage.equals("√Îº“")) {
+		if(deleteMessage.equals("cancel")) {
 			scheduleDelete = false;
 		}
 		return scheduleDelete;

@@ -49,7 +49,7 @@ public class ManagementTest {
 	@Test
 	public void testScheduleDeleteCheck() {
 		Management schedule = new Management();
-		assertFalse(schedule.scheduleDeleteCheck("√Îº“"));
+		assertFalse(schedule.scheduleDeleteCheck("cancel"));
 	}
 	
 	@Test
