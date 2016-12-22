@@ -46,4 +46,17 @@ public class ManagementTest {
 		assertEquals("01043699422", phonebook.phonebookUpdatePhone("01043689422", "01043699422"));
 	}
 	
+	@Test
+	public void testScheduleDeleteCheck() {
+		Management schedule = new Management();
+		assertFalse(schedule.scheduleDeleteCheck("√Îº“"));
+	}
+	
+	@Test
+	public void testScheduleUseridCheck() {
+		Management schedule = new Management();
+		assertNull(schedule.scheduleUseridCheck(""));
+		assertNotNull(schedule.scheduleUseridCheck("jiwan"));
+	}
+	
 }

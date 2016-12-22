@@ -7,7 +7,9 @@ public class Management {
 	String phone = "01043689422";
 	String birth = "19950421";
     String email = "yui08@naver.com";
-	
+    boolean scheduleDelete;
+	String scheduleUserid;
+    
 	boolean processLogin(String formId, String formPassword) {
 		login = false;
 		if (formId.equals(userId) && formPassword.equals(userPassword)) {
@@ -35,5 +37,21 @@ public class Management {
 			phone = updatePhone;
 		}
 		return phone;
+	}
+	
+	boolean scheduleDeleteCheck(String deleteMessage) {
+		scheduleDelete = true;
+		if(deleteMessage.equals("√Îº“")) {
+			scheduleDelete = false;
+		}
+		return scheduleDelete;
+	}
+	
+	String scheduleUseridCheck(String userid){
+		scheduleUserid = userid;
+		if(userid == null){
+			scheduleUserid = "";
+		}
+		return scheduleUserid;
 	}
 }
