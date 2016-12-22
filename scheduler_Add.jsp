@@ -86,7 +86,7 @@ function onLogout() {
 		<aside id="aside">
 			<div id="profileMenu">Profile</div>
 			<div id="profile">
-				<form id="profileForm" action="userUpdate.jsp" method="post">
+				<form id="profileForm" action="user_Update.jsp" method="post">
 					<img src="<%=formImage %>"></img>
 					<table>
 						<tr>

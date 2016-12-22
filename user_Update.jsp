@@ -20,7 +20,7 @@
 </head>
 <body>
 	<% 
-	String formId = "aaa"; //(String)session.getAttribute("userId");
+	String formId = (String)session.getAttribute("userId");
 	String formPassword = null;
 	String formName = null;
 	String formBirth = null;
@@ -74,7 +74,7 @@
 				</ul>
  			</section>
 			<section id="contents">
-				<form id="userUpdateForm" action="userUpdateProcess.jsp" method="post">
+				<form id="userUpdateForm" action="user_UpdateProcess.jsp" method="post">
 					<table>
 						<tr>
 							<td>ID </td>

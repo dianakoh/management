@@ -10,7 +10,7 @@
 </head>
 <body>
 	<%
-	String formId = "aaa";//(String)session.getAttribute("userId");
+	String formId = (String)session.getAttribute("userId");
 	String formPassword = request.getParameter("formPassword");
 	String formName = request.getParameter("formName");
 	String formBirth = request.getParameter("formBirth");
