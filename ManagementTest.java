@@ -30,4 +30,20 @@ public class ManagementTest {
 		Management user = new Management();
 		assertEquals("123123", user.updateUserPassword("jiwan", "123123"));
 	}
+	
+	@Test
+	 public void testSetPhonebookAddProcessSql() {
+		Management phonebook = new Management();
+		String testSql = "";
+		testSql = "INSERT INTO phoneBook(name, phone, birth, email) values(?, ?, ?, ?, ?)";
+	      
+	    assertEquals(testSql, phonebook.setPhonebookAddProcessSql("hyein", "01043689422", "19950421", "yui08@naver.com"));
+	 }
+	
+	@Test
+	public void testPhonebookUpdatePhone() {
+		Management phonebook = new Management();
+		assertEquals("01043699422", phonebook.phonebookUpdatePhone("01043689422", "01043699422"));
+	}
+	
 }
