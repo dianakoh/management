@@ -32,30 +32,29 @@ public class ManagementTest {
 	}
 	
 	@Test
-	 public void testSetPhonebookAddProcessSql() {
+	public void testSetPhonebookAddProcessSql() {
 		Management phonebook = new Management();
 		String testSql = "";
-		testSql = "INSERT INTO phoneBook(name, phone, birth, email) values(?, ?, ?, ?, ?)";
-	      
-	    assertEquals(testSql, phonebook.setPhonebookAddProcessSql("hyein", "01043689422", "19950421", "yui08@naver.com"));
-	 }
+		testSql = "INSERT INTO phoneBook(name, phone, birth, email) values(?, ?, ?, ?)";
+		assertEquals(testSql, phonebook.setPhonebookAddProcessSql("hyein", "01043689422", "19950421", "yui08@naver.com"));
+	}
 	
 	@Test
-	public void testPhonebookUpdatePhone() {
+	public void testUpdatePhonebookPhoneNum() {
 		Management phonebook = new Management();
-		assertEquals("01043699422", phonebook.phonebookUpdatePhone("01043689422", "01043699422"));
+		assertEquals("01043699422", phonebook.updatePhonebookPhoneNum("01043689422", "01043699422"));
 	}
 	
 	@Test
-	public void testScheduleDeleteCheck() {
+	public void testCheckDeleteSchedule() {
 		Management schedule = new Management();
-		assertFalse(schedule.scheduleDeleteCheck("cancel"));
+		assertFalse(schedule.checkDeleteSchedule("cancel"));
 	}
 	
 	@Test
-	public void testScheduleUseridCheck() {
+	public void testCheckScheduleUserId() {
 		Management schedule = new Management();
-		assertTrue(schedule.scheduleUseridCheck("gayoung"));
+		assertTrue(schedule.checkScheduleUserId("gayoung"));
 	}
 	
 }

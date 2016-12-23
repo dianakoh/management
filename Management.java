@@ -8,7 +8,7 @@ public class Management {
 	String birth = "19950421";
     String email = "yui08@naver.com";
     boolean scheduleDelete;
-	boolean scheduleUserid;
+	boolean scheduleUserId;
     
 	boolean processLogin(String formId, String formPassword) {
 		login = false;
@@ -25,33 +25,32 @@ public class Management {
 		return userPassword;
 	}
 	
-	public String setPhonebookAddProcessSql(String name, String phone, String birth, String email) {
+	String setPhonebookAddProcessSql(String name, String phone, String birth, String email) {
 		String sql = "";
-		sql = "INSERT INTO phoneBook(name, phone, birth, email) values(?, ?, ?, ?, ?)";
-	      
+		sql = "INSERT INTO phoneBook(name, phone, birth, email) values(?, ?, ?, ?)";
 	    return sql; 
 	}
 	
-	public String phonebookUpdatePhone(String phone, String updatePhone) {
-		if(phone != null) {
-			phone = updatePhone;
+	String updatePhonebookPhoneNum(String phone, String updatedPhoneNum) {
+		if (phone != null) {
+			phone = updatedPhoneNum;
 		}
 		return phone;
 	}
 	
-	boolean scheduleDeleteCheck(String deleteMessage) {
+	boolean checkDeleteSchedule(String deleteMessage) {
 		scheduleDelete = true;
-		if(deleteMessage.equals("cancel")) {
+		if (deleteMessage.equals("cancel")) {
 			scheduleDelete = false;
 		}
 		return scheduleDelete;
 	}
 	
-	boolean scheduleUseridCheck(String userid){
-		scheduleUserid = false;
-		if(userid != null){
-			scheduleUserid = true;
+	boolean checkScheduleUserId(String userId) {
+		scheduleUserId = false;
+		if (userId != null) {
+			scheduleUserId = true;
 		}
-		return scheduleUserid;
+		return scheduleUserId;
 	}
 }
