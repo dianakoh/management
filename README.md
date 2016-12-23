@@ -1,7 +1,7 @@
-## Daily user management ##
+# Daily user management #
 
 ### Management 실행 절차 ###
-	* Management.war 압축 해제 후 이클립스 실행
+	* SE.war 압축 해제 후 이클립스 실행
 	* MySQL local db table 생성
 	* url, dbId, dbPassword 수정 
 
