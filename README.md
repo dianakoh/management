@@ -1,24 +1,35 @@
-## Daily user management
+## Daily user management ##
 
-1. JUnit test file
-* Management.java
-* ManagementTest.java
+### Management 실행 절차 ###
+	* Management.war 압축 해제 후 이클립스 실행
+	* MySQL local db table 생성
+	* url, dbId, dbPassword 수정 
 
-2. MySQL local db 
-If you want to test our code, you have to change db part of the code.
-Before changing the code, you have to make local db tables as ours.
-We have three tables : 
-* Users(int id, String password, String name, Stirng birth, String email, String image)
-* Phonebook()
-* Schedule()
-You should change url, dbId, dbPassword as yours below files.
-* loginProcess.jsp
-* 
-*
-*
-*
-*
+### MySQL local db table 생성 ###
+	* users(String id, String pw, String name, Date birth, String email, String img);
+	* phoneBook(int no, String userID, String name, int phone, Date birth, String email);
+	* schedule(int no, String userID, String title, String content, Date scheduleDate, String scheduleTime);
 
+### url, dbId, dbPassword 수정 ###
+	* loginProcess.jsp
+	* phoneBook.jsp
+	* phoneBook_Add.jsp
+	* phoneBook_AddProcess.jsp
+	* phoneBook_DeleteProcess.jsp
+	* phoneBook_Update.jsp
+	* phoneBook_UpdateProcess.jsp
+	* scheduler.jsp
+	* schedulerView.jsp
+	* scheduler_Add.jsp
+	* scheduler_AddProcess.jsp
+	* scheduler_DeleteProcess.jsp
+	* scheduler_Update.jsp
+	* scheduler_UpdateProcess.jsp
+	* user_Update.jsp
+	* user_UpdateProcess.jsp
 
-3.
-4.
+----------
+
+### JUnit test files ###
+	* Management.java
+	* ManagementTest.java
